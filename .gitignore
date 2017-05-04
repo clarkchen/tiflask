@@ -1,0 +1,13 @@
+.idea
+data
+*.pyc
+!test
+*.log
+*.cfg
+sync
+*.sh
+!run.sh
+!*.cfg
+!requirements.txt
+*/logs/*
+*/config/real/*
