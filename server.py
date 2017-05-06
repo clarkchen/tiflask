@@ -8,7 +8,7 @@ from tiflask.config import server_config
 
 if __name__ == '__main__':
     try:
-        app.run(host='0.0.0.0', port=int(server_config.port), debug=True, threaded=True)  # port is 5000 default
+        app.run(host='0.0.0.0', port=int(server_config.port), threaded=True)  # port is 5000 default
     except Exception as e:
         app.logger.exception(e)
 

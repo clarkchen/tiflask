@@ -1,15 +1,18 @@
 # -*- coding: utf-8 -*-
 from flask import request, jsonify
-from flask.ext.restful import Api
 
 # from tiflask.controllers import get_user_score_controller
 from tiflask.controllers.user_info_controller import UserInfoController
 
 __author__ = 'clarkchen'
-from flask import Flask
 
-from tiflask.utils import log_format, log_format_elk
 from tiflask.config import server_config
+
+
+from flask.ext.restful import Api
+from flask import Flask
+from tiflask.utils import log_format, log_format_elk
+
 
 app = Flask(__name__)
 

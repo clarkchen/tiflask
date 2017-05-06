@@ -20,9 +20,9 @@ class TestService(TestCase):
 
     def test_local_service_get(self):
         url = "http://127.0.0.1:5000/api/user_score"
-        url = "http://192.168.121.33:5080/api/user_score"
         data = {"phone": "18500195632"}
 
         ret_value = requests.get(url, json=data)
+        print(ret_value.status_code)
         clark = json.loads(ret_value.text, encoding="utf-8")
         print(json.dumps(clark), ret_value.status_code)

@@ -67,9 +67,9 @@ class UserInfoController(Resource):
 
             ret_score = ret_value.get("score")
 
-            log_dict.update({"ret_score": ret_score})
-
-            logging.info("{elk_sign} user {phone} score is {score}".format(phone=user_phone, score=ret_score,
+            # features and score
+            log_dict.update(ret_value)
+            self.logger.info("{elk_sign} user {phone} score is {score}".format(phone=user_phone, score=ret_score,
                                                                            elk_sign=server_config.elk_sign),
                          extra=log_dict)
         except Exception as e:

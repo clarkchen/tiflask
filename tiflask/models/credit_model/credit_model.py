@@ -18,7 +18,10 @@ class CreditModel(object):
         """
         assert isinstance(user_info, UserInfo)
 
-        score =features["read_article_num"]  * 5 +  features["read_article_type_num"] *3 + features["recent_3_read_article_num"] *6 + features["recent_3_read_article_type_num"]*8
+        score =features["read_article_num"] * 5 + \
+               features["read_article_type_num"] * 3 +\
+               features["recent_3_read_article_num"] * 6 + \
+               features["recent_3_read_article_type_num"]*8
 
         self.logger.info("user {user_id}, phone {phone}, score is {score}".format(user_id = user_info.id, phone=user_info.phone, score=score))
 

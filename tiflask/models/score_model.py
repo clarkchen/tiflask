@@ -14,7 +14,7 @@ class ScoreModel(object):
 
     def predict_score(self, user_info):
         """
-        返回用户有多喜欢阅读
+        返回用户的阅读的分数
         :param user_info:
         :return:
         """
@@ -26,6 +26,7 @@ class ScoreModel(object):
 
         credit_model = CreditModel()
         score = credit_model.cal_score(user_info=user_info, features=features)
+        self.logger.info("cal score is {score}, user is {uid}".format(score=score, uid=user_info.id))
 
         ret = {"score": score, "features": features}
 

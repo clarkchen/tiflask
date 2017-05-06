@@ -2,13 +2,11 @@
 
 
 __author__ = 'clarkchen'
-from pymongo import MongoClient
+
 from tiflask.config import *
-from signal import *
-import sys
-import atexit
 
 
+from pymongo import MongoClient
 def _init_client(mongo_config, **kwargs):
     """
     初始化 Mongo Client 全局针对一个db只需要生成一次就行
@@ -20,7 +18,6 @@ def _init_client(mongo_config, **kwargs):
     db.authenticate(mongo_config.user, mongo_config.passwd)
     db_name = mongo_config.db_name
     return client, getattr(client, db_name)
-
 
 
 def get_collection(db, collection_name):

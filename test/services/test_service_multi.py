@@ -1,5 +1,4 @@
 # -*- coding:utf-8 -*-
-from multiprocessing.dummy import Pool
 
 __author__ = 'clarkchen'
 from unittest import TestCase
@@ -14,12 +13,13 @@ def send_request(url, data):
 class TestService(TestCase):
     def setUp(self):
         print("testing TestService")
-        self.pool_size = 20
+        self.pool_size = 5
 
     def test_local_service_post_multi(self):
         # url = "http://192.168.121.33:5080/api/user_score"
         url = "http://127.0.0.1:5000/api/user_score"
         data = {"phone": "18500195632"}
+        from multiprocessing.dummy import Pool
         pool = Pool(self.pool_size)
         start = ar.get()
         result = [pool.apply_async(send_request, args=(url, data))for x in range(10*self.pool_size)]
